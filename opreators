@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Marks</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input, button {
+            padding: 10px;
+            margin: 5px 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Student Marks</h2>
+        <input type="number" id="marks" placeholder="Enter marks" />
+        <button onclick="calculateGrade()">Get Grade</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function calculateGrade() {
+            const marks = parseFloat(document.getElementById('marks').value);
+            let grade;
+            let message;
+
+            if (marks >= 90) {
+                grade = 'A';
+                message = "Excellent";
+            } else if (marks >= 80) {
+                grade = 'B';
+                message = "Very Good";
+            } else if (marks >= 70) {
+                grade = 'C';
+                message = "Good";
+            } else if (marks >= 60) {
+                grade = 'D';
+                message = "Satisfactory";
+            } else {
+                grade = 'F';
+                message = "Fail";
+            }
+
+            // Use logical operators to add additional comments
+            if (marks >= 90 && marks <= 100) {
+                message += ". Keep it up!";
+            } else if (marks < 60 || marks > 100) {
+                message += ". Need Improvement.";
+            }
+
+            document.getElementById('result').innerText = `Grade: ${grade} - ${message}`;
+        }
+    </script>
+</body>
+</html>
